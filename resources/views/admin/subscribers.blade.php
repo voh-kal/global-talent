@@ -28,9 +28,9 @@
                         <tbody>
                             @foreach($subscriber as $tal)
                             <tr>
-                                <td>{{$tal->id}}</td>
-                                <td>{{$tal->sub_name}}</td>
-                                <td>{{$tal->sub_email}}</td>
+                                <td>{{ucwords($tal->id}}</td>
+                                <td>{{ucwords($tal->sub_name)}}</td>
+                                <td>{{ucwords($tal->sub_email)}}</td>
                                
                                
                             </tr>

@@ -36,16 +36,16 @@
                         <tbody>
                             @foreach($talent as $tal)
                             <tr>
-                                <td>{{$tal->id}}</td>
-                                <td>{{$tal->fname}}</td>
-                                <td>{{$tal->email}}</td>
-                                <td>{{$tal->phone}}</td>
-                                <td>{{$tal->location}}</td>
-                                <td>{{$tal->job}}</td>
-                                <td>{{$tal->work}}</td>
-                                <td>{{$tal->interest}}</td>
-                                <td>{{$tal->linkedin}}</td>
-                                <td>{{$tal->education}}</td>
+                                <td>{{ucwords($tal->id)}}</td>
+                                <td>{{ucwords($tal->fname)}}</td>
+                                <td>{{ucwords($tal->email)}}</td>
+                                <td>{{ucwords($tal->phone)}}</td>
+                                <td>{{ucwords($tal->location)}}</td>
+                                <td>{{ucwords($tal->job)}}</td>
+                                <td>{{ucwords($tal->work)}}</td>
+                                <td>{{ucwords($tal->interest)}}</td>
+                                <td>{{ucwords($tal->linkedin)}}</td>
+                                <td>{{ucwords($tal->education)}}</td>
                                
                                 <td>
                                     <a href="/talent/{{$tal->id}}" class="btn btn-primary">View</a>

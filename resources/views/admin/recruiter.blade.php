@@ -34,17 +34,17 @@
                         <tbody>
                             @foreach($recruiter as $tal)
                             <tr>
-                                <td>{{$tal->id}}</td>
-                                <td>{{$tal->cname}}</td>
-                                <td>{{$tal->cfname}}</td>
-                                <td>{{$tal->cemail}}</td>
-                                <td>{{$tal->cphone}}</td>
-                                <td>{{$tal->clocation}}</td>
-                                <td>{{$tal->cjob}}</td>
-                                <td>{{$tal->cwork}}</td>
-                                <td>{{$tal->position}}</td>
+                                <td>{{ucwords($tal->id)}}</td>
+                                <td>{{ucwords($tal->cname)}}</td>
+                                <td>{{ucwords($tal->cfname)}}</td>
+                                <td>{{ucwords($tal->cemail)}}</td>
+                                <td>{{ucwords($tal->cphone)}}</td>
+                                <td>{{ucwords($tal->clocation)}}</td>
+                                <td>{{ucwords($tal->cjob)}}</td>
+                                <td>{{ucwords($tal->cwork)}}</td>
+                                <td>{{ucwords($tal->position)}}</td>
                                
-                                <td>{{$tal->role}}</td>
+                                <td>{{ucwords($tal->role)}}</td>
                                
                                 <td>
                                     <a href="/recruiter/{{$tal->id}}" class="btn btn-primary">View</a>

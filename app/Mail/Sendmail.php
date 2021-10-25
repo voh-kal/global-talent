@@ -16,9 +16,11 @@ class Sendmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $data;
+    public function __construct($data)
     {
         //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +30,14 @@ class Sendmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $name = 'Global Talent Company';
+        $address = env('MAIL_FROM_ADDRESS');
+        $subject = 'Email Verification';
+
+        return $this->view('mail.email')
+            ->from($address, $name)
+            ->replyTo($address, $name)
+            ->subject($subject)
+            ->with(['data' => $this->data]);
     }
 }

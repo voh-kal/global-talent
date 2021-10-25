@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Sendmail;
 use App\Models\Recruiter;
 use App\Models\Subscription;
 use App\Models\Talent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -42,12 +44,17 @@ class HomeController extends Controller
             'work' => 'required',
 
         ]);
-       
+
         $email = Talent::where(['email' => $request->email])->count();
         if ($email > 0) {
             return back()->with('error', 'Email already registered');
         }
         $talent = Talent::create($request->all());
+        $new_data['email'] = $request->email;
+        $new_data['name'] = $request->fname;
+
+        Mail::to(strtolower($request->email))->send(new Sendmail($new_data));
+        // dd($request->email);
         if ($talent) {
             return back()->with('success', 'registration successful');
         } else {
@@ -70,12 +77,16 @@ class HomeController extends Controller
             'position' => 'required',
         ]);
 
-        $email = Recruiter::where(['email' => $request->email])->count();
+        $email = Recruiter::where(['cemail' => $request->cemail])->count();
         if ($email > 0) {
             return back()->with('error', 'Email already registered');
         }
 
         $recruiter = Recruiter::create($request->all());
+        $new_data['email'] = $request->cemail;
+        $new_data['name'] = $request->cfname;
+
+        Mail::to(strtolower($request->cemail))->send(new Sendmail($new_data));
         if ($recruiter) {
             return back()->with('success', 'registration successful');
         } else {

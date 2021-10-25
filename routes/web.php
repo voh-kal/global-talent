@@ -29,6 +29,9 @@ Route::get('/subscription', 'HomeController@subscription')->name('subscription')
 Route::post('/subscription', 'HomeController@subscription')->name('subscription');
 
 // admin
+Route::post('/admin/login', 'AdminController@login');
+Route::get('/admin/login', 'AdminController@login');
+
 Route::get('/admin/home', 'AdminController@admin_home');
 Route::post('/admin/home', 'AdminController@admin_home');
 
@@ -45,3 +48,6 @@ Route::get('/admin/subscribers', 'AdminController@subscriber');
 Route::get('/recruiter/{id}', 'AdminController@view_recruiter');
 Route::get('/talent/{id}', 'AdminController@view_talent');
 Route::get('/subscriber/{id}', 'AdminController@view_subscriber');
+
+
+// Route::get('/email', 'AdminController@email');
