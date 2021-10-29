@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>GTC </title>
+    <title>Global Talent Company</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -24,6 +26,83 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        .form-control:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+
+        .form-control::-moz-placeholder {
+            color: #999;
+            opacity: 1
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: #999
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #999
+        }
+
+        .form-control::-ms-expand {
+            background-color: transparent;
+            border: 0
+        }
+
+        .form-control[disabled],
+        .form-control[readonly],
+        fieldset[disabled] .form-control {
+            background-color: #eee;
+            opacity: 1
+        }
+
+        .form-control[disabled],
+        fieldset[disabled] .form-control {
+            cursor: not-allowed
+        }
+
+        textarea.form-control {
+            height: auto
+        }
+
+        input[type=search] {
+            -webkit-appearance: none
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+
+            input[type=date].form-control,
+            input[type=time].form-control,
+            input[type=datetime-local].form-control,
+            input[type=month].form-control {
+                line-height: 34px
+            }
+
+        }
+    </style>
 
 </head>
 
@@ -84,31 +163,52 @@
 
 
 
-        <footer class=" footer" style="margin-top: 20px;">
+        <footer class=" footer" style="padding-top: 20px; background: #f2e1d1; padding-bottom: 20px">
             <div class="container">
-                <div class="row mb-2">
-                    <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
                         <h3 class="footer-title">Global Talent Company</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, animi.</p>
                         <p><span class="d-inline-block d-md-block">203 Fake St. College Road,</span> Lagos, Nigeria</p>
                     </div>
-                   
-                    <div class="col-md-6">
+
+                    <div class="col-md-4">
                         <h3 class="footer-title">Follow Us</h3>
                         <a href="#" class="social-circle p-2"><span class="icon-twitter"></span></a>
                         <a href="#" class="social-circle p-2"><span class="icon-facebook"></span></a>
                         <a href="#" class="social-circle p-2"><span class="icon-instagram"></span></a>
                         <a href="#" class="social-circle p-2"><span class="icon-linkedin"></span></a>
+                    </div><br>
+                    <div class="col-md-4">
+                        <h3 class="footer-title">Subscribe to get new updates</h3>
+                        @include('home.flash_message')
+                        <form action="{{route('subscription')}}" method="post" id="subscribe">
+                            @csrf
+
+                            <div class="form-group col-md-12">
+                                <!-- <p style="border: 1px solid yellow;">hello</p> -->
+                                <input type="text" class="form-control" placeholder=" Full Name" name="sub_name" required>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="email" class="form-control" placeholder="Email address" name="sub_email" required>
+                            </div>
+
+
+                            <div class="col-md-3" style="margin: 0px 70px;">
+                                <input type="submit" class="btn" style="background-color: #e2e3e7;" placeholder="submit">
+                            </div>
+
+                        </form>
                     </div>
                 </div>
 
-               
+
             </div>
         </footer>
 
     </div> <!-- .site-wrap -->
 
-   
+
     <script src="js/jquery-ui.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

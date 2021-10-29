@@ -9,7 +9,7 @@
 
 
             <div class="col-md-12">
-               
+
                 <div class="table-responsive">
 
 
@@ -20,19 +20,28 @@
                             <th>Id</th>
                             <th>Full Name</th>
                             <th>Email</th>
-                            
-                           
+
+
 
 
                         </thead>
                         <tbody>
+                            <?php
+                            $i = 1;
+
+                            ?>
                             @foreach($subscriber as $tal)
                             <tr>
-                                <td>{{ucwords($tal->id)}}</td>
+                                <td>
+                                    <?php
+                                    echo $i;
+                                    $i++;
+                                    ?>
+                                </td>
                                 <td>{{ucwords($tal->sub_name)}}</td>
                                 <td>{{ucwords($tal->sub_email)}}</td>
-                               
-                               
+
+
                             </tr>
                             @endforeach
 

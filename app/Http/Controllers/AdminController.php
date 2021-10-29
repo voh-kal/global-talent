@@ -94,4 +94,6 @@ class AdminController extends Controller
         //    dd($subscriber = $request->all() );
         return view("admin.view_talent", compact('talent'));
     }
+
+   
 }

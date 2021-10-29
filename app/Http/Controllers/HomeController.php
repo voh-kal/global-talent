@@ -56,9 +56,9 @@ class HomeController extends Controller
         Mail::to(strtolower($request->email))->send(new Sendmail($new_data));
         // dd($request->email);
         if ($talent) {
-            return back()->with('success', 'registration successful');
+            return back()->with('success', 'Registration successful, Email will be sent shortly');
         } else {
-            return back()->with('error', 'registration error');
+            return back()->with('error', 'Registration error');
         }
     }
 
@@ -88,9 +88,9 @@ class HomeController extends Controller
 
         Mail::to(strtolower($request->cemail))->send(new Sendmail($new_data));
         if ($recruiter) {
-            return back()->with('success', 'registration successful');
+            return back()->with('success', 'Registration successful, Email will be sent shortly');
         } else {
-            return back()->with('error', 'registration error');
+            return back()->with('error', 'Registration error');
         }
     }
 
@@ -109,9 +109,16 @@ class HomeController extends Controller
         }
         $subscription = Subscription::create($request->all());
         if ($subscription) {
-            return back()->with('success', 'subscription successful');
+            return back()->with('success', 'Subscription successful');
         } else {
-            return back()->with('error', 'subscription error');
+            return back()->with('error', 'Subscription error');
         }
     }
+
+    public function category()
+    {  
+        return view("home.option");
+    }
+
+   
 }

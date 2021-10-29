@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Global Talent Company</title>
 
 
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -212,7 +212,7 @@
 		}
 
 		#navigation {
-			background: #0e1a35;
+			background: #428bca;
 		}
 
 		#navigation {
@@ -805,8 +805,8 @@
 		<div class="row display-table-row">
 			<div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
 				<div class="logo">
-					<a hef="/admin/home"><img src="" alt="logo" class="hidden-xs hidden-sm">
-						<img src="" alt="logo" class="visible-xs visible-sm circle-logo">
+					<a href="/admin/home"><img src="/images/gtc.png" alt="logo" class="hidden-xs hidden-sm" style="width: 80px;">
+						<img src="/images/gtc.png" alt="logo" class="visible-xs visible-sm circle-logo" style="width: 39%;">
 					</a>
 				</div>
 				<div class="navi">

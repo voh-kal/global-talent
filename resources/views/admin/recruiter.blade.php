@@ -9,7 +9,7 @@
 
 
             <div class="col-md-12">
-               
+
                 <div class="table-responsive">
 
 
@@ -20,21 +20,35 @@
                             <th>Id</th>
                             <th>Company's Name</th>
                             <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Mobile </th>
-                            <th>Location</th>
-                            <th>Job</th>
-                            <th>Work</th>
-                            <th>Position</th>
-                            <th>Role</th>
+                            <th>Email Address</th>
+                            <th>Phone Number </th>
+                            <th> Current Location</th>
+                            <th>Job Type</th>
+                            <th>Work Location</th>
+                            <th>Hiring for what job roles</th>
+                            <th>Job Role</th>
                             <th>Action</th>
 
 
                         </thead>
+
+
+
+
+
                         <tbody>
+                            <?php
+                            $i = 1;
+
+                            ?>
                             @foreach($recruiter as $tal)
                             <tr>
-                                <td>{{ucwords($tal->id)}}</td>
+                                <td>
+                                    <?php
+                                        echo $i;
+                                        $i++;
+                                    ?>
+                                </td>
                                 <td>{{ucwords($tal->cname)}}</td>
                                 <td>{{ucwords($tal->cfname)}}</td>
                                 <td>{{ucwords($tal->cemail)}}</td>
@@ -43,16 +57,16 @@
                                 <td>{{ucwords($tal->cjob)}}</td>
                                 <td>{{ucwords($tal->cwork)}}</td>
                                 <td>{{ucwords($tal->position)}}</td>
-                               
+
                                 <td>{{ucwords($tal->role)}}</td>
-                               
+
                                 <td>
                                     <a href="/recruiter/{{$tal->id}}" class="btn btn-primary">View</a>
                                 </td>
 
                             </tr>
                             @endforeach
-                            
+
                         </tbody>
 
                     </table>

@@ -9,7 +9,7 @@
 
 
             <div class="col-md-12">
-               
+
                 <div class="table-responsive">
 
 
@@ -34,9 +34,19 @@
 
                         </thead>
                         <tbody>
+                            <?php
+                            $i = 1;
+
+                            ?>
                             @foreach($talent as $tal)
                             <tr>
-                                <td>{{ucwords($tal->id)}}</td>
+
+                                <td>
+                                    <?php
+                                    echo $i;
+                                    $i++;
+                                    ?>
+                                </td>
                                 <td>{{ucwords($tal->fname)}}</td>
                                 <td>{{ucwords($tal->email)}}</td>
                                 <td>{{ucwords($tal->phone)}}</td>
@@ -46,7 +56,7 @@
                                 <td>{{ucwords($tal->interest)}}</td>
                                 <td>{{ucwords($tal->linkedin)}}</td>
                                 <td>{{ucwords($tal->education)}}</td>
-                               
+
                                 <td>
                                     <a href="/talent/{{$tal->id}}" class="btn btn-primary">View</a>
                                 </td>

@@ -19,6 +19,10 @@ use App\Http\Controllers\AdminController;
 Route::get('/', 'HomeController@home');
 Route::post('/', 'HomeController@home');
 
+Route::get('/home/category', 'HomeController@category');
+Route::post('/home/category', 'HomeController@category');
+
+
 Route::get('/talent', 'HomeController@talent')->name('talent');
 Route::post('/talent', 'HomeController@talent')->name('talent');
 
@@ -50,4 +54,4 @@ Route::get('/talent/{id}', 'AdminController@view_talent');
 Route::get('/subscriber/{id}', 'AdminController@view_subscriber');
 
 
-// Route::get('/email', 'AdminController@email');
+// Route::get('/email', 'HomeController@email');
