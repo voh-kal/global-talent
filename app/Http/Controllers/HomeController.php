@@ -56,7 +56,9 @@ class HomeController extends Controller
         Mail::to(strtolower($request->email))->send(new Sendmail($new_data));
         // dd($request->email);
         if ($talent) {
-            return back()->with('success', 'Registration successful, Email will be sent shortly');
+            return back()->with('success', 'Thanks for indicating interest in joining the Global Talent Company community. A  special link to join the slack community would be sent to your email shortly.
+
+            ❤️GTC');
         } else {
             return back()->with('error', 'Registration error');
         }
@@ -88,7 +90,9 @@ class HomeController extends Controller
 
         Mail::to(strtolower($request->cemail))->send(new Sendmail($new_data));
         if ($recruiter) {
-            return back()->with('success', 'Registration successful, Email will be sent shortly');
+            return back()->with('success', '   Thanks for indicating interest in joining the Global Talent Company community. A  special link to join the slack community would be sent to your email shortly.
+
+            ❤️GTC');
         } else {
             return back()->with('error', 'Registration error');
         }
