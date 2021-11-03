@@ -54,4 +54,4 @@ Route::get('/talent/{id}', 'AdminController@view_talent');
 Route::get('/subscriber/{id}', 'AdminController@view_subscriber');
 
 
-// Route::get('/email', 'HomeController@email');
+Route::get('/email', 'HomeController@email');

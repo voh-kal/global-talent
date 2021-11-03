@@ -9,17 +9,16 @@
 </head>
 
 <body bgcolor="#f7f7f7">
-    <div style="padding: 83px 25%;" class="bg-light">
+    <div style="padding: 83px;" class="bg-light">
         <div class="container-for-gmail-android" width="50%" style="padding: 5%; background-color: #f2f2ee; box-shadow: 0px 1px 14px #ccc;">
             <div align='center'>
-                <img class="force-width-gmail text-center" src="{{env('APP_URL')}}/images/gtc.png" alt="gtc" />
+                <img class="force-width-gmail" src="{{env('APP_URL')}}/images/gtc.png" alt="gtc" width="150px"/>
 
             </div>
-            <div style="padding:20px 0px 0px 20px">
-                <h2>Welcome <span class="text-muted" style="color: #88e5b3;"> {{ucwords( $data['name'] )}}</span></h2>
-                <div style="padding-left: 50px; font-size: larger;">
-                    <p>You registered with <span style="color: #88e5b3;"></span> {{ucwords( $data['email'] )}}</p>
-                    <p>click <a href="#" style="color: danger;">here</a> to join the Community</p>
+            <div style="padding:40px">
+                <h2>Hello <span class="text-muted" style="color: #e81224;"> {{ucwords( $data['name'] )}},</span></h2>
+                <div style="padding: 0px 50px; font-size: larger;">
+                    <p>Thanks for indicating interest in joining the Global Talent Company community. A  special link to join the slack community would be sent to your email shortly. </p> <p style="text-align: right;">❤️GTC</p>
                 </div>
 
             </div>
