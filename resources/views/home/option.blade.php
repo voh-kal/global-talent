@@ -1,7 +1,17 @@
 @extends('layout.login_lay')
 @section('content')
 <style>
-    .margb{
+    .img_select {
+        display: block;
+    }
+
+    @media (max-width: 991px) {
+        .img_select {
+            display: none;
+        }
+    }
+
+    .margb {
 
         margin-bottom: 10px;
     }
@@ -17,7 +27,7 @@
 
     .img_st {
         width: 200px;
-       
+
     }
 
     @media (max-width: 600px) {
@@ -32,7 +42,7 @@
 
         .img_st {
             width: 200px;
-          
+
             margin-left: 43px;
         }
 
@@ -117,15 +127,14 @@
 
     <div class="col-lg-12 bg-light">
 
-        <div class="col-md-6 fside" style="height: 100vh;
-    background: #ede9e6;">
+        <div class="col-md-6 fside" style="height: 100vh; background: #ede9e6;">
             <div><img src="/images/gtc.png" alt="logo" class="img_st"></div>
             <h2 class="sside">Select a category in the options below and fill the form attached </h2>
             <div id="ishow">
                 <h3 class="text-secondary">Select a category</h3>
                 <div>
                     <select name="category" id="category" class="form-control col-md-8" required>
-                        <option value="">select</option>
+                        <option value="" id="img_selec">select</option>
                         <option value="talent" id="talent" style="color: black;">Talent</option>
                         <option value="recruiter" id="recruiter" style="color: black;">Company/Recruiter</option>
                     </select>
@@ -139,6 +148,11 @@
 
         <div class="col-md-6" style="padding: 20px 8%;">
             @include('home.flash_message')
+
+            <div id="img_select" class="img_select" style="margin-top: 135px;">
+                <img src="/images/welcome.jpg" alt="welcome" class="img-fluid">
+            </div>
+
             <!-- talent -->
 
             <form action="{{route('talent')}}" method="post" id="talent2" style="display: none;">
@@ -147,30 +161,30 @@
 
                 <div class="row mb-1 margb">
                     <div class="form-group col-md-6">
-                    <label for="">Full Name</label>
-                        <input type="text" class="form-control" ="Full name" name="fname" required>
+                        <label for="">Full Name</label>
+                        <input type="text" class="form-control"="Full name" name="fname" required>
                     </div>
                     <div class="form-group col-md-6">
-                    <label for="">Mobile Number</label>
-                        <input type="tel" class="form-control" ="Mobile Number" name="phone" required>
+                        <label for="">Mobile Number</label>
+                        <input type="tel" class="form-control"="Mobile Number" name="phone" required>
                     </div>
                 </div>
 
                 <div class="row mb-1 margb">
                     <div class="form-group col-md-12">
-                    <label for="">Email address</label>
-                        <input type="email" class="form-control" ="Email address" name="email" required>
+                        <label for="">Email address</label>
+                        <input type="email" class="form-control"="Email address" name="email" required>
                     </div>
                 </div>
 
                 <div class="row mb-1 margb">
                     <div class="form-group col-md-6">
-                    <label for="">LinkedIn url</label>
-                        <input type="text" class="form-control" ="LinkedIn url" name="linkedin" required>
+                        <label for="">LinkedIn url</label>
+                        <input type="text" class="form-control"="LinkedIn url" name="linkedin" required>
                     </div>
                     <div class="form-group col-md-6">
-                    <label for="">Current Location</label>
-                        <input type="text" class="form-control" ="Current location" name="location" required>
+                        <label for="">Current Location</label>
+                        <input type="text" class="form-control"="Current location" name="location" required>
                     </div>
                 </div>
 
@@ -199,12 +213,12 @@
 
                 <div class="row mb-1 margb">
                     <div class="form-group col-md-6">
-                    <label for="">Highest Education Qualification</label>
-                        <input type="text" class="form-control" =" Highest Education Qualification" name="education" required>
+                        <label for="">Highest Education Qualification</label>
+                        <input type="text" class="form-control"=" Highest Education Qualification" name="education" required>
                     </div>
                     <div class="form-group col-md-6">
-                    <label for="">Interested Opportunities</label>
-                        <input type="text" class="form-control" ="Interested opportunities" name="interest" required>
+                        <label for="">Interested Opportunities</label>
+                        <input type="text" class="form-control"="Interested opportunities" name="interest" required>
 
                     </div>
                 </div>
@@ -225,34 +239,34 @@
                 @csrf
                 <div class="row mb-1 margb">
                     <div class="form-group col-md-6">
-                    <label for="">Name of Company</label>
-                        <input type="text" class="form-control" ="Name of Company" name="cname" required>
+                        <label for="">Name of Company</label>
+                        <input type="text" class="form-control"="Name of Company" name="cname" required>
                     </div>
                     <div class="form-group col-md-6">
-                    <label for="">Full Name</label>
-                        <input type="text" class="form-control" ="Full Name" name="cfname" required>
-                    </div>
-                </div>
-
-                <div class="row mb-1 margb">
-                    <div class="form-group col-md-6">
-                    <label for="">Email Address</label>
-                        <input type="email" class="form-control" ="Email address" name="cemail" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                    <label for="">Mobile Number</label>
-                        <input type="tel" class="form-control" ="Mobile Number" name="cphone" required>
+                        <label for="">Full Name</label>
+                        <input type="text" class="form-control"="Full Name" name="cfname" required>
                     </div>
                 </div>
 
                 <div class="row mb-1 margb">
                     <div class="form-group col-md-6">
-                    <label for="">Job Role</label>
-                        <input type="text" class="form-control" ="Job Role" name="role" required>
+                        <label for="">Email Address</label>
+                        <input type="email" class="form-control"="Email address" name="cemail" required>
                     </div>
                     <div class="form-group col-md-6">
-                    <label for="">Current Location</label>
-                        <input type="text" class="form-control" ="Current location" name="clocation" required>
+                        <label for="">Mobile Number</label>
+                        <input type="tel" class="form-control"="Mobile Number" name="cphone" required>
+                    </div>
+                </div>
+
+                <div class="row mb-1 margb">
+                    <div class="form-group col-md-6">
+                        <label for="">Job Role</label>
+                        <input type="text" class="form-control"="Job Role" name="role" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Current Location</label>
+                        <input type="text" class="form-control"="Current location" name="clocation" required>
                     </div>
                 </div>
 
@@ -306,6 +320,8 @@
 <script>
     $('#category').change(function() {
         let sel = $(this).find(":selected").val()
+        $('#img_select').slideUp();
+
         if (sel == 'talent') {
             //show talent
             $('#talent2').show();
@@ -315,7 +331,9 @@
             //show recruiter
             $('#recruiter2').show();
             $('#talent2').hide();
+
         } else {
+            $('#img_select').slideDown();
             $('#talent2').hide();
             $('#recruiter2').hide();
         }

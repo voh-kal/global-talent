@@ -106,7 +106,7 @@
                                 <p class="btn smoothscroll" id="join" style="background-color: #c02830">Join Community</p>
                             </a>
                             <br>
-                            <a href="#subscribe" class="lead" style="color: #c02830" id="">Be the first to know when we launch</a>
+                            <a href="#subscribe" class="lead" style="color: #c02830; text-decoration:underline" id="">Be the first to know when we launch</a>
                         </div>
                     </div>
                 </div>

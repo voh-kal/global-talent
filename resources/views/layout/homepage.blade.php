@@ -4,6 +4,7 @@
 <head>
     <title>Global Talent Company</title>
     <meta charset="utf-8">
+    <meta name="csrf_token" content="{{csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -25,6 +26,16 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+        .sub_btn {
+            background-color: #c02830;
+            border-radius: 5px;
+            float: right;
+        }
+
+        .sub_btn:hover {
+            color: black !important;
+        }
+
         .form-control {
             display: block;
             width: 100%;
@@ -160,7 +171,7 @@
 
 
 
-        <footer class=" footer" style="padding-top: 20px; background: #f2e1d1; padding-bottom: 20px">
+        <footer class=" footer" style="padding-top: 80px; background: #f2e1d1; padding-bottom: 20px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -178,21 +189,23 @@
                     </div><br>
                     <div class="col-md-4">
                         <h3 class="footer-title">Subscribe to get new updates</h3>
-                        @include('home.flash_message')
-                        <form action="{{route('subscription')}}" method="post" id="subscribe">
+                        <div class="alert alert-success alert-block flash" id="alr" style="display: none;">
+                            <button type="button" class="close" data-dismiss="alert">×</button>	
+                                <strong id="msgg"></strong>
+                        </div>
+                        <form id="subscribe">
                             @csrf
 
-                            <div class="form-group col-md-12">
-                                <!-- <p style="border: 1px solid yellow;">hello</p> -->
-                                <input type="text" class="form-control" placeholder=" Full Name" name="sub_name" required>
+                            <div class="form-group col-md-12 p-0">
+                                <input type="text" class="form-control" placeholder=" Full Name" name="sub_name" id="sub_name" required>
                             </div>
-                            <div class="form-group col-md-12">
-                                <input type="email" class="form-control" placeholder="Email address" name="sub_email" required>
+                            <div class="form-group col-md-12 p-0">
+                                <input type="email" class="form-control" placeholder="Email address" name="sub_email" id="sub_email" required>
                             </div>
 
 
-                            <div class="col-md-3" style="margin: 0px 70px;">
-                                <input type="submit" class="btn" style="background-color: #e2e3e7;" placeholder="submit">
+                            <div class="col-md-12 p-0">
+                                <input type="button" class="btn text-white sub_btn" id="subt" value="submit">
                             </div>
 
                         </form>
@@ -216,6 +229,31 @@
     <script src="js/jquery.sticky.js"></script>
 
     <script src="js/main.js"></script>
+
+    <script>
+        $('#subt').click(function(){
+            $(this).val('loading...')
+            $(this).attr('disabled', true)
+            let sub_name = $('#sub_name').val();
+            let sub_email = $('#sub_email').val();
+            $.post('/api/subscription', {sub_name, sub_email}).done(function(response){
+                $('#alr').slideDown()
+                $('#subt').val('Submit')
+                $('#subt').attr('disabled', false)
+                if(response == 0){
+                    $('#msgg').html('Already subscribed')
+                    $('#alr').removeClass('alert-success')
+                    $('#alr').addClass('alert-danger')
+                }else if(response == 1){
+                    $('#msgg').html('Subscription Successful')
+                }else{
+                    $('#alr').removeClass('alert-success')
+                    $('#alr').addClass('alert-danger')
+                    $('#msgg').html('An error occured')
+                }
+            })
+        })
+    </script>
 
 
 </body>

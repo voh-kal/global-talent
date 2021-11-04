@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="user-dashboard">
-    <h1>subscriber's Home</h1>
+    <h1>Subscriber's Home</h1>
 
     <div class="container">
         <div class="row">

@@ -103,15 +103,15 @@ class HomeController extends Controller
 
         ]);
 
-        $email = Talent::where(['email' => $request->email])->count();
-        if ($email > 3) {
-            return back()->with('error', 'messages been processed');
+        $email = Subscription::where(['sub_email' => $request->sub_email])->count();
+        if ($email > 0) {
+            return 0;
         }
         $subscription = Subscription::create($request->all());
         if ($subscription) {
-            return back()->with('success', 'Subscription successful');
+            return 1;
         } else {
-            return back()->with('error', 'Subscription error');
+            return 2;
         }
     }
 
